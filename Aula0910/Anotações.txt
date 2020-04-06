@@ -1,0 +1,77 @@
+==================================================
+FURB
+Programação Web I - Matutino
+Aula 09 e 10
+
+=====
+GitHub
+ - pra quem tiver dificuldade, pode utilizar o próprio navegado (arrastar os arquivos)
+ - há um client de Git embutido no próprio Visual Studio Code
+
+
+=====
+Conteúdo
+ - flexbox - https://www.w3schools.com/css/css3_flexbox.asp
+ - mediaqueries - https://www.w3schools.com/css/css3_mediaqueries.asp
+ - atividades flexbox
+
+
+
+=====
+Flexbox
+
+ - no container
+	display: flex
+	
+	flex-direction: 
+		row - lado a lado - horizontal
+		column - vertical
+		row-reverse
+		column-reverse
+	
+	flex-wrap: permite ou não quebra de linha
+		wrap
+		nowrap
+		wrap-reverse
+	
+	flex-flow: flex-direction e flex-wrap juntos
+	
+	justify-content: alinhamento (row horizontal, column vertical)
+		center (centro)
+		flex-start (inicio)
+		flex-end (fim)
+		space-around (espaços entre, inclusive antes do inicio e depois do final)
+		space-between (espaços entre, inicio e final sem espaços)
+	
+	align-items: alinhamento ( row vertical, column horizontal)
+		center
+		flex-start
+		flex-end
+		stretch: (estica o elemento para preencher todo o espaco)
+		
+	align-content: alinhamento entre linhas caso há mais de uma linha		
+		space-between
+		space-around
+		stretch
+		center
+		flex-start
+		flex-end
+	
+	Centro perfeito:
+	.flex-container {
+		display: flex;
+		height: 300px;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	
+ - nos itens:
+	order: ordenação
+	flex-grow: permite aumentar o tamanho do elemento (default 0)
+	flex-shrink: permite encolher tamanho do elemento (default 1)
+	flex-basis: width inicial
+	flex: flex-grow, flex-shrink, flex-basis
+	align-self: altera o align-items do elemento
+
+	
