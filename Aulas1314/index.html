@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    var arrayDeNomes = [];
+
+    function adicionarNoArray() {
+      var input = document.getElementById('entrada');
+      arrayDeNomes.push(input.value);
+      input.value = "";
+    }
+
+    function mostrarConteudoArray() {
+      arrayDeNomes.forEach(function (valor, indice) {
+        console.log("Índice " + indice + " possui o valor " + valor);
+      });
+    }
+  </script>
+
+</head>
+
+<body onload="">
+
+  <h1 id="titulo1">Exemplo de JavaScript 1</h1>
+
+  <input id="entrada">
+
+  <button onclick="adicionarNoArray()">Adicionar no Array</button>
+
+
+  <hr>
+  <h1>Funções como parâmetro</h1>
+  <script>
+    function multiplicacao(a, b) {
+      return a * b;
+    }
+    function adicao(a, b) {
+      return a * b;
+    }
+
+    function executaOperacao(operacao, x, y) {
+      return operacao(x, y);
+    }
+  </script>
+
+  <hr>
+  <script>
+    function alterarImagem() {
+      document.getElementById('imagem1').src = "http://dsc.inf.furb.br/arquivos/fotos/303_2019_10_17_18_39_30.jpg";
+    }
+  </script>
+  <h1>Manipulando atributos</h1>
+  <img id="imagem1" src="http://dsc.inf.furb.br/arquivos/logos/furb.jpg">
+  <button onclick="alterarImagem()">Alterar imagem</button>
+
+  <hr>
+  <script>
+    function adicionarParagrafo() {
+      var input = document.getElementById('inputTexto');
+      var texto = input.value;
+      input.value = '';
+
+      var p1 = document.createElement('p');
+      p1.innerHTML = texto;
+
+      var saida = document.getElementById('caixaDeSaida');
+      saida.appendChild(p1);
+    }
+  </script>
+  <h1>Adicionando elementos</h1>
+
+
+  <div id="caixaDeSaida" style="border: 2px solid red;">
+    <p>Primeiro parágrafo.</p>
+  </div>
+
+  <input id="inputTexto">
+  <button onclick="adicionarParagrafo()">Adicionar</button>
+
+
+  <hr>
+  <script>
+    function trocarBackground() {
+      document.getElementById('titulo2').style.background = '#0f0';
+    }
+    function removerBackground() {
+      document.getElementById('titulo2').style.background = '';
+    }
+  </script>
+  <h1 id="titulo2" onmouseover="trocarBackground()" onmouseout="removerBackground()">Manipulando CSS</h1>
+
+
+  <hr>
+  <h1>Objetos</h1>
+  <script>
+    // criar um um objeto
+    debugger;
+
+    var proprietario1 = {
+      nome: 'Jonathan',
+      CPF: 123456789,
+    };
+
+    var carro1 = {
+      marca: 'FIAT',
+      modelo: 'UNO',
+      ano: 2005,
+      proprietario: proprietario1,
+
+      //método de um objeto em JS
+      ligarCarro: function () {
+        debugger;
+        console.log('Carro da marca ' + this.marca + ', do modelo ' + this.modelo + ' foi ligado');
+      }
+    }
+
+
+    var carro2 = {
+      marca: 'Hyundai',
+      modelo: 'i-30',
+      ano: 2012,
+      proprietario: proprietario1,
+
+      //método de um objeto em JS
+      ligarCarro: function () {
+        debugger;
+        console.log('Carro da marca ' + this.marca + ', do modelo ' + this.modelo + ' foi ligado');
+      }
+
+    }
+
+    console.log(carro1);
+    console.log(carro2);
+
+  </script>
+
+
+  <hr>
+  <h1>Eventos</h1>
+  <button onclick="alert('botão 1 clicado')">Botão 1</button>
+  <button id="botao2">Botão 2</button>
+  
+  <script>
+    var bt2 = document.getElementById('botao2');
+    bt2.addEventListener('click', function() {alert('botão 2 clicado');})
+  </script>
+
+
+  <br><br><br><br><br><br>
+</body>
+
+</html>
