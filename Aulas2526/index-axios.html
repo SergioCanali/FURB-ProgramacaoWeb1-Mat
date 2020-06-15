@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+
+  <form>
+    <p>
+      <label for="nome">Nome</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="salario">Salário</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="idade">Idade</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="perfil">Url imagem perfil</label><br>
+      <input>
+    </p>
+    <p>
+      <button>Salvar</button> <button>Cancelar</button>
+    </p>
+  </form>
+  <table id="tabela-empregados" border="1" width="100%">
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Salário</th>
+      <th>Idade</th>
+      <th>Image de Perfil</th>
+      <th>Ações</th>
+    </tr>
+
+
+    <!-- só um exemplo -->
+    <tr>
+      <td>1</td>
+      <td>Tiger Nixon</td>
+      <td>320800</td>
+      <td>61</td>
+      <td><img
+          src="https://avatars1.githubusercontent.com/u/912571?s=460&u=f93fe75196ffca0d3070a571c0e592a406328678&v=4">
+      </td>
+      <td>
+        <a href="#">Editar</a>
+        <a href="#">Excluir</a>
+      </td>
+    </tr>
+
+
+  </table>
+
+  <script>
+    function mostrarDadosDoEmpregado(empregado) {
+      var nome = empregado.employee_name;
+      var salario = empregado.employee_salary;
+      var idade = empregado.employee_age;
+      console.log("Empregado: Nome:" + nome + ", Salário:" + salario + ", Idade: " + idade);
+    }
+
+
+    //listando dados
+    //axios.get('http://dummy.restapiexample.com/api/v1/employees')
+    //  .then(function (response) {
+    //    // handle success
+    //    var empregados = response.data.data; //array de empregados
+    //    for (var i = 0; i < empregados.length; i++) {
+    //      var empregado = empregados[i];
+    //      mostrarDadosDoEmpregado(empregado);
+    //    }
+    //  })
+    //  .catch(function (respostaDeErro) {
+    //    // handle error
+    //    var status = respostaDeErro.response.status;
+    //    alert("Ocorreu um erro na requisição (status " + status + ")");
+    //  });
+
+
+    ////enviando dados
+    //objeto fixo de exemplo - no trabalho tem que obter os dados do formulário
+    var novoEmpregado = {
+      name: 'Jonathan',
+      salary: 2000010,
+      age: 23
+    };
+
+    //axios.post('http://dummy.restapiexample.com/api/v1/create', novoEmpregado)
+    //  .then(function (response) {
+    //    // handle success
+    //    var nome = response.data.data.name;
+    //    alert("O empregado " + nome + " foi criado com sucesso!!!");
+    //  })
+    //  .catch(function (respostaDeErro) {
+    //    // handle error
+    //    var status = respostaDeErro.response.status;
+    //    alert("Ocorreu um erro na requisição (status " + status + ")");
+    //  });
+
+
+    //atualização de dados
+    var novoEmpregado = {
+      name: 'Tiger Nixon',
+      salary: 420800,
+      age: 61
+    };
+    axios.put('http://dummy.restapiexample.com/api/v1/update/1', novoEmpregado)
+      .then(function (response) {
+        // handle success
+        var nome = response.data.data.name;
+        alert("O empregado " + nome + " foi atualizado com sucesso!!!");
+      })
+      .catch(function (respostaDeErro) {
+        // handle error
+        var status = respostaDeErro.response.status;
+        alert("Ocorreu um erro na requisição (status " + status + ")");
+      });
+
+  </script>
+</body>
+
+</html>

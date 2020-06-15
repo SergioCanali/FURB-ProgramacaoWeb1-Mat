@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+  <form>
+    <p>
+      <label for="nome">Nome</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="salario">Salário</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="idade">Idade</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="perfil">Url imagem perfil</label><br>
+      <input>
+    </p>
+    <p>
+      <button>Salvar</button> <button>Cancelar</button>
+    </p>
+  </form>
+  <table id="tabela-empregados" border="1" width="100%">
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Salário</th>
+      <th>Idade</th>
+      <th>Image de Perfil</th>
+      <th>Ações</th>
+    </tr>
+
+
+    <!-- só um exemplo -->
+    <tr>
+      <td>1</td>
+      <td>Tiger Nixon</td>
+      <td>320800</td>
+      <td>61</td>
+      <td><img
+          src="https://avatars1.githubusercontent.com/u/912571?s=460&u=f93fe75196ffca0d3070a571c0e592a406328678&v=4">
+      </td>
+      <td>
+        <a href="#">Editar</a>
+        <a href="#">Excluir</a>
+      </td>
+    </tr>
+
+
+  </table>
+
+  <script>
+    function mostrarDadosDoEmpregado(empregado) {
+      var nome = empregado.employee_name;
+      var salario = empregado.employee_salary;
+      var idade = empregado.employee_age;
+      console.log("Empregado: Nome:" + nome + ", Salário:" + salario + ", Idade: " + idade);
+    }
+
+
+    //listando dados
+    //$.get("http://dummy.restapiexample.com/api/v1/employees", function (resposta) {
+    //  var empregados = resposta.data;
+    //  for (var i = 0; i < empregados.length; i++) {
+    //    var empregado = empregados[i];
+    //    mostrarDadosDoEmpregado(empregado);
+    //  }
+    //})
+    //  .fail(function (respostaErro) {
+    //    var status = respostaErro.status;
+    //    alert("Ocorreu um erro na requisição (status " + status + ")");
+    //  });
+
+
+    ////enviando dados
+    ////objeto fixo de exemplo - no trabalho tem que obter os dados do formulário
+    //var novoEmpregado = {
+    //  name: 'Jonathan',
+    //  salary: 2000010,
+    //  age: 23
+    //};
+    //var dados = JSON.stringify(novoEmpregado);
+    //$.post("http://dummy.restapiexample.com/api/v1/create", dados, function (resposta) {
+    //  var nome = resposta.data.name;
+    //  alert("O empregado " + nome + " foi cadastrado com sucesso!!");
+    //})
+    //  .fail(function (respostaErro) {
+    //    var status = respostaErro.status;
+    //    alert("Ocorreu um erro na requisição (status " + status + ")");
+    //  });
+
+
+    var empregadoAlterado = {
+      name: "Tiger Nixon",
+      salary: "420800",
+      age: "61"
+    };
+
+    //TODO: corrigir o método utilizando AJAX
+    //atualizando dados
+    $.ajax('http://dummy.restapiexample.com/api/v1/create', {
+      method: 'PUT',
+      contents: empregadoAlterado,
+      contentType: 'application/json',
+      success: function(resposta) {
+        console.log(resposta);
+      }
+    });
+    
+
+
+  </script>
+</body>
+
+</html>

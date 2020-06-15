@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <form>
+    <p>
+      <label for="nome">Nome</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="salario">Salário</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="idade">Idade</label><br>
+      <input>
+    </p>
+    <p>
+      <label for="perfil">Url imagem perfil</label><br>
+      <input>
+    </p>
+    <p>
+      <button>Salvar</button> <button>Cancelar</button>
+    </p>
+  </form>
+  <table id="tabela-empregados" border="1" width="100%">
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Salário</th>
+      <th>Idade</th>
+      <th>Image de Perfil</th>
+      <th>Ações</th>
+    </tr>
+
+
+    <!-- só um exemplo -->
+    <tr>
+      <td>1</td>
+      <td>Tiger Nixon</td>
+      <td>320800</td>
+      <td>61</td>
+      <td><img
+          src="https://avatars1.githubusercontent.com/u/912571?s=460&u=f93fe75196ffca0d3070a571c0e592a406328678&v=4">
+      </td>
+      <td>
+        <a href="#">Editar</a>
+        <a href="#">Excluir</a>
+      </td>
+    </tr>
+
+
+  </table>
+
+  <script>
+    function mostrarDadosDoEmpregado(empregado) {
+      var nome = empregado.employee_name;
+      var salario = empregado.employee_salary;
+      var idade = empregado.employee_age;
+      //console.log("Empregado: Nome:" + nome + ", Salário:" + salario + ", Idade: " + idade);
+      console.log(nome + ", " + salario + ", " + idade + ", , [editar]() [excluir]()");
+    }
+
+
+    //listando dados
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4) {
+    
+        if (this.status == 200) {
+          // sucesso na requisicao
+          var retorno = JSON.parse(this.responseText);
+          var empregados = retorno.data; //array de empregados
+          for (var i = 0; i < empregados.length; i++) {
+            var empregado = empregados[i];
+            mostrarDadosDoEmpregado(empregado);
+          }
+        }
+    
+        else {
+          //erro na requisicao
+          alert('Ocorreu um erro na requisição (status: ' + this.status + ')');
+        }
+      }
+    };
+    xhttp.open('GET', 'http://dummy.restapiexample.com/api/v1/employees', true);
+    xhttp.send();
+
+
+    //enviando dados
+    //{"name":"test","salary":"123","age":"23"}
+    //var xhttp = new XMLHttpRequest();
+//
+    //xhttp.onreadystatechange = function () {
+    //  if (this.readyState == 4) {
+    //    if (this.status == 200) {
+    //      debugger;
+    //      //sucesso na requisicao
+    //      var retorno = JSON.parse(this.responseText);
+    //      var nome = retorno.data.name;
+    //      alert("O empregado " + nome + " foi cadastrado com sucesso!");
+    //    }
+    //    else {
+    //      //erro na requisicao
+    //      alert('Ocorreu um erro na requisição (status: ' + this.status + ')');
+    //    }
+    //  }
+    //}
+//
+    //xhttp.open('POST', 'http://dummy.restapiexample.com/api/v1/create', true);
+//
+    ////objeto fixo de exemplo - no trabalho tem que obter os dados do formulário
+    //var novoEmpregado = {
+    //  name: 'Jonathan',
+    //  salary: 2000010,
+    //  age: 23
+    //};
+    //var formatoJson = JSON.stringify(novoEmpregado)
+    //xhttp.send(formatoJson);
+
+  </script>
+</body>
+
+</html>
