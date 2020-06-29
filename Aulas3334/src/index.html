@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="css/estilos.scss">
+</head>
+
+<body>
+    <h1>Cadastro de alunos</h1>
+
+    <section id="formulario-aluno">
+        <h2>Formulário</h2>
+
+        <form id="form-alunos">
+            <p>
+                <label for="nome">Nome:</label>
+                <input name="nome" id="nome">
+            </p>
+            <p>
+                <label for="nota">Nota:</label>
+                <input name="nota" id="nota" type="number">
+            </p>
+            <p>
+                <input type="submit" value="Adicionar">
+            </p>
+        </form>
+    </section>
+
+    <section id="tabela-alunos">
+        <h2>Listagem de Alunos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Aluno</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-alunos">
+                <tr>
+                    <td>1</td>
+                    <td>Aluno1</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="./js/app.js"></script>
+
+</body>
+
+</html>
